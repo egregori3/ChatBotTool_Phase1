@@ -6,7 +6,7 @@ import myWit
 import myLUIS
 import myAPI
 import convAPI
-import myState
+import mySession
 from flask import Flask, request, send_from_directory
 
 # NLU testing page
@@ -21,9 +21,9 @@ NLUhtmlAPIRespEnd   = '</textarea>'
 testForm = NLUhtmlHeader+NLUformTest
 
 # Conversation page
-CONVhtmlHeader = '<center><h1>Eric Gregori OMSCS Advisor Conversational Agent - egregori3@gatech.edu<br>Ask me about OMSCS admissions or curriculum</h1></center><br>'
-CONVformTest = '<center><form action="convsubmit" id="textform" method="post"><textarea name="text" cols="40"></textarea><input type="submit" value="Submit"></form></center>'
-CONVhtmlAPIRespStart = '<center><br><textarea cols="80" rows="40">'
+CONVhtmlHeader = '<center><h1>Eric Gregori OMSCS Advisor Conversational Agent - egregori3@gatech.edu</h1><h2>Ask about OMSCS admissions or curriculum.</h2></center>'
+CONVformTest = '<center><form action="convsubmit" id="textform" method="post"><textarea name="text" cols="40" placeholder="Enter text and click Submit"></textarea><input type="submit" value="Submit"></form></center>'
+CONVhtmlAPIRespStart = '<center><br><textarea cols="80" rows="40" readonly>'
 CONVhtmlAPIRespEnd   = '</textarea></center>'
 convForm = CONVhtmlHeader+CONVformTest
 
@@ -33,7 +33,7 @@ my_file_path = os.path.join(my_dir, 'OMSCSLexJson1.json')
 with open(my_file_path) as json_data:
     OMSCSDict = json.load(json_data)
 
-state = myState.myState()
+Session = mySession.mySession()
 
 app = Flask(__name__)
 
@@ -44,19 +44,21 @@ def main_page():
 #Conversation Testing
 @app.route('/conversation')
 def ConvPage():
-    state.StartSession( convAPI.convAPI( OMSCSDict ) )
+    Session.StartSession()
     return convForm
 
 @app.route('/convsubmit', methods=['POST'])
 def csubmit_post():
-    if state.CheckClient():
+    if Session.stateDone():
+        Session.StartSession()
+    client = convAPI.convAPI()
+    if Session.inValidSession():
         return 'Goto egregori3.pythonanywhere.com'
-    client = state.GetClient()
-    APIresp, found = client.GetIntent(request.form["text"])
-    retResponse = convForm
-    retResponse += (CONVhtmlAPIRespStart + APIresp)
-    if found:
-        retResponse += ('&#13;&#10;&#13;&#10;' + 'Was this answer helpful?')
+    APIresp, retState = client.GetIntent(request.form["text"], Session.GetSessionId())
+    if retState: Session.ChangeState(retState)
+    retResponse =  convForm
+    retResponse += CONVhtmlAPIRespStart
+    retResponse += Session.AddResponse(APIresp)
     retResponse += CONVhtmlAPIRespEnd
     return retResponse
 
