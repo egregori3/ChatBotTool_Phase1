@@ -1,0 +1,42 @@
+{
+	"gre":
+	{
+		"response":"Token 3: fcdda596b1746385e; Applicants do not need to take the GRE. A GRE score is not required for admission."
+	},
+	"education":
+	{
+		"response":"Token 8: fcdda596b17468f8c; Georgia Tech grants graduate admission only to applicants who have a bachelor’s degree or its equivalent prior to matriculation."
+	},
+	"recommendation":
+	{
+		"response":"Token 2: fcdda596b17462c93; Applicants must procure recommendations from three individuals. As part of the application, applicants will provide their recommenders' email addresses. Those individuals will be contacted through email and provided instructions on how to submit their recommendations online. A physical letter will not be required."
+	},
+		"transcript":
+	{
+		"response":"Token 1: fcdda596b174612ab; You will be asked to provide an unofficial English translation of your transcript AND native language transcripts upon application. If your undergraduate institution does not grade on a 4.0 scale, you do NOT need to convert your GPA. The Office of Graduate Studies does not accept self-converted GPA's and will do their own conversion. Official transcripts can be delivered in several ways. Most common are those delivered directly to Georgia Tech from your academic institution. Some institutions also provide certified PDFs to alumni for use in graduate applications, as well as sealed, physical transcripts. If you are accepted to OMS CS, you will be asked to verify your unofficial transcript provided at the time of application with an official copy through one of these methods."
+	},
+		"TOEFL":
+	{
+		"response":"Token 4: fcdda596b174648d0; Exceptions are given to the applicants from countries where English is the SOLE OFFICIAL language of instruction (Australia, Bahamas, Barbados, Canada-except Québec province, England, Ghana, Ireland, Jamaica, Kenya, New Zealand, Nigeria, Scotland, St. Vincent and the Grenadines, Singapore, Trinidad, Tobago, Uganda and Wales). An applicant is exempt from TOEFL only if they are a naturalized citizen, a Green Card holder or have spent at least one year in residence and enrolled at a U.S. college or university. TOEFL scores are due upon completion of your application. Please visit the Georgia Tech Catalog - TOEFL for International Students page for further information regarding TOEFL requirements."
+	},
+		"curriculum":
+	{
+		"response":"Token 7: fcdda596b17467e01; The curriculum in the pilot OMS CS will represent a subset of the on-campus curriculum, allowing for a full MS in computer science but with only some of the specializations available in the on-campus program. The OMS CS curriculum will expand as more courses come online."
+	},
+		"admission":
+	{
+		"response":"Token 6: fcdda596b17466269; Preferred qualifications for admitted OMS CS students are an undergraduate degree in computer science or related field (typically mathematics, computer engineering or electrical engineering) from an accredited institution with a cumulative GPA of 3.0 or higher. Applicants who do not meet these criteria will be evaluated on a case-by-case basis; significant professional or other work experience with supporting recommendations may qualify as an adequate substitute for the appropriate academic credentials, however work experience will not take the place of an undergraduate degree. Georgia Tech will not admit applicants into the OMS CS degree program without the minimum qualifications for success. The Georgia Tech minimum criteria used in determining each applicant's eligibility for consideration shall include: Evidence of award of a bachelor's degree or its equivalent (prior to matriculation) from a recognized institution, demonstrated academic excellence, and evidence of preparation in their chosen field sufficient to ensure successful graduate study; and For international applicants, satisfactory scores on the Test of English as a Foreign Language (TOEFL). All applications are reviewed by a faculty committee to ensure that those admitted can succeed in the program. Applicants who are selected for admission will be conditionally admitted into the degree program and must pass their first two OMS CS foundational courses with a grade of B or better to be fully admitted. Students do not need to take these foundational courses before registering for elective courses, however we recommend students take at least one foundational course per semester in which they are enrolled until they are fully admitted to Georgia Tech."
+	},
+		"foundation":
+	{
+		"response":"Token 1: fcdda596b174612ab; They are indicated in the course listing on the Program Information page of this website."
+	},
+		"application":
+	{
+		"response":"Token 2: fcdda596b17462c93; Application periods, including deadlines, will be announced on the OMSCS website under the Program Information page. You can also receive application information by joining the OMS CS mailing list. The Program Information page  explains the relevant dates, costs and student information necessary for application. During application windows, a link to the OMS CS application site will be posted on the Program Information page"
+	},
+	    "None":
+	{
+	    "response":"Token 3: fcdda596b1746385e; I can help with OMSCS admissions and curriculum"
+	}
+}
