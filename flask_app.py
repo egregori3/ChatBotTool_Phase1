@@ -44,13 +44,17 @@ def main_page():
 #Conversation Testing
 @app.route('/conversation')
 def ConvPage():
-    Session.StartSession()
-    return convForm
+    if Session.Timeout():
+        Session.StartSession()
+        return convForm
+    return ('Sorry, only one session is supported and someone else has it. Try again in:'+str(Session.TimeRemaining())+' seconds')
 
 @app.route('/convsubmit', methods=['POST'])
 def csubmit_post():
     if Session.stateDone():
         Session.StartSession()
+    if Session.Timeout():
+        return 'Your session has timed out. Goto egregori3.pythonanywhere.com to re-enter '
     client = convAPI.convAPI()
     if Session.inValidSession():
         return 'Goto egregori3.pythonanywhere.com'
@@ -58,6 +62,7 @@ def csubmit_post():
     if retState: Session.ChangeState(retState)
     retResponse =  convForm
     retResponse += CONVhtmlAPIRespStart
+    retResponse += ('Session Time remaining:'+str(Session.TimeRemaining())+' seconds&#13;&#10;')
     retResponse += Session.AddResponse(APIresp)
     retResponse += CONVhtmlAPIRespEnd
     return retResponse
